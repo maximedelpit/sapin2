@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.4.1'
 
-gem 'figaro'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
@@ -16,11 +18,23 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+gem 'oj', '~> 3.3', '>= 3.3.9'
+gem 'overcommit', '~> 0.41.0'
+gem 'rollbar', '~> 2.15', '>= 2.15.5'
+
+group :development do
+  gem 'annotate', '~> 2.7', '>= 2.7.2'
+  gem 'awesome_print', '~> 1.8'
+  gem 'brakeman', '~> 4.0', '>= 4.0.1', require: false
+  gem 'bullet', '~> 5.7'
+  gem 'rubocop', '~> 0.51.0', require: false
+end
+
 group :development, :test do
+  gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
