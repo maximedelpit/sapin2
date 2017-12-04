@@ -12,10 +12,10 @@ gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
-gem 'font-awesome-sass'
 gem 'uglifier'
 
 gem 'oj', '~> 3.3', '>= 3.3.9'
@@ -23,8 +23,11 @@ gem 'overcommit', '~> 0.41.0'
 gem 'rollbar', '~> 2.15', '>= 2.15.5'
 
 group :development do
-  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'annotate', '~> 2.7', '>= 2.7.2'
+  gem 'awesome_print', '~> 1.8'
   gem 'brakeman', '~> 4.0', '>= 4.0.1', require: false
+  gem 'bullet', '~> 5.7'
+  gem 'rubocop', '~> 0.51.0', require: false
 end
 
 group :development, :test do
