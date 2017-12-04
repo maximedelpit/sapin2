@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.4.1'
 
@@ -21,10 +23,10 @@ gem 'rollbar', '~> 2.15', '>= 2.15.5'
 gem 'rubocop', '~> 0.51.0', require: false
 
 group :development, :test do
+  gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
