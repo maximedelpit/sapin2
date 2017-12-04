@@ -6,4 +6,3 @@ PreCommit:
 PrePush:
   Brakeman:
     enabled: true
-      command: ['bundle', 'exec', 'rubocop']
