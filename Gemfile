@@ -16,6 +16,9 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+gem 'oj', '~> 3.3', '>= 3.3.9'
+gem 'rollbar', '~> 2.15', '>= 2.15.5'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
