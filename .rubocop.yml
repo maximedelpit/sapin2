@@ -10,3 +10,4 @@ AllCops:
     - config/initializers/simple_form_bootstrap.rb
     - db/migrate/*
     - db/schema.rb
+    - lib/tasks/auto_annotate_models.rake
