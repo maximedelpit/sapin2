@@ -4,7 +4,6 @@ Rails:
 Metrics/LineLength:
   Max: 100
 
-
 AllCops:
   TargetRubyVersion: 2.4.1
   Exclude:
