@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
 
-gem 'figaro'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
@@ -18,6 +18,7 @@ gem 'uglifier'
 
 gem 'oj', '~> 3.3', '>= 3.3.9'
 gem 'rollbar', '~> 2.15', '>= 2.15.5'
+gem 'rubocop', '~> 0.51.0', require: false
 
 group :development, :test do
   gem 'pry-byebug'
