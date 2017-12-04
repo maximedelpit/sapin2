@@ -19,6 +19,7 @@ require 'sprockets/railtie'
 Bundler.require(*Rails.groups)
 
 module Afinis
+  # top level config
   class Application < Rails::Application
     config.generators do |generate|
       generate.assets false

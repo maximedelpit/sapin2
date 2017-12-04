@@ -1,0 +1,11 @@
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 100
+
+
+AllCops:
+  TargetRubyVersion: 2.4.1
+  Exclude:
+    - config/initializers/simple_form_bootstrap.rb
