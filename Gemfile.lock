@@ -46,6 +46,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    brakeman (4.0.1)
     builder (3.2.3)
     byebug (9.1.0)
     childprocess (0.8.0)
@@ -198,6 +199,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
+  brakeman (~> 4.0, >= 4.0.1)
   figaro (~> 1.1, >= 1.1.1)
   font-awesome-sass
   jbuilder (~> 2.0)

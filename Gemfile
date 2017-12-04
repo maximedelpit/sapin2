@@ -12,16 +12,20 @@ gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
+gem 'font-awesome-sass'
 gem 'uglifier'
 
 gem 'oj', '~> 3.3', '>= 3.3.9'
 gem 'overcommit', '~> 0.41.0'
 gem 'rollbar', '~> 2.15', '>= 2.15.5'
-gem 'rubocop', '~> 0.51.0', require: false
+
+group :development do
+  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'brakeman', '~> 4.0', '>= 4.0.1', require: false
+end
 
 group :development, :test do
   gem 'listen', '~> 3.0.5'
