@@ -1,0 +1,9 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+    command: ['bundle', 'exec', 'rubocop']
+
+PrePush:
+  Brakeman:
+    enabled: true
+      command: ['bundle', 'exec', 'rubocop']
