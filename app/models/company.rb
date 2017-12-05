@@ -28,4 +28,33 @@ class Company < ApplicationRecord
 
   belongs_to :prospect
   has_one :report, dependent: :nullify
+
+  def calculate_score
+    score_company_type + score_localisation + score_employees_count + score_turnover
+  end
+
+  private
+
+  def score_company_type
+    subsidiary? ? 0.5 : 1
+  end
+
+  def score_localisation
+    in_france? ? 5 : 0
+  end
+
+  def score_employees_count
+    case employees_count
+    when 'small'
+      -5
+    when 'medium'
+      0.5
+    when 'large'
+      5
+    end
+  end
+
+  def score_turnover
+    small_turnover? ? 0.5 : 5
+  end
 end
