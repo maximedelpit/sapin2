@@ -11,12 +11,11 @@
 #  email          :string
 #  role           :integer
 #  is_responsible :boolean
-#  company_id     :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 
 # Model the prospects who will use the website to generate a report
 class Prospect < ApplicationRecord
-  belongs_to :company
+  has_one :company, dependent: :nullify
 end
