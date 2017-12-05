@@ -10,7 +10,7 @@
 #  phone_number   :string
 #  email          :string
 #  role           :integer
-#  is_responsible :boolean
+#  is_responsible :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
