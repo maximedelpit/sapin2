@@ -5,7 +5,7 @@
 # Table name: reports
 #
 #  id         :integer          not null, primary key
-#  score      :integer
+#  score      :float
 #  result     :integer
 #  company_id :integer
 #  created_at :datetime         not null
@@ -22,5 +22,7 @@
 
 # Model which present the overview of the report (score and result)
 class Report < ApplicationRecord
+  enum result: %i[not_concerned partly_concerned concerned]
+
   belongs_to :company
 end

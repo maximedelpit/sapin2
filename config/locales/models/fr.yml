@@ -41,3 +41,7 @@ fr:
       report:
         score: "Score"
         result: "Résultat"
+        results:
+          not_concerned: "Concernée"
+          partly_concerned: "Potentiellement Concernée"
+          concerned: "Non concernée"
