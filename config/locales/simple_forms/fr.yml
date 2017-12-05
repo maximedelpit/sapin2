@@ -10,5 +10,5 @@ fr:
         phone_number: "Numéro de téléphone"
         localisation: "Domiciliation de l'entreprise"
         firm_type: "Type de structure"
-        employee_count: "Nombre d'employés"
+        employees_count: "Nombre d'employés"
         turnover: "Chiffre d'affaire"
