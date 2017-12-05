@@ -1,0 +1,36 @@
+fr:
+  activerecord:
+    models:
+      prospect: "Prospects"
+      company: "Entreprise"
+      report: "Rapport"
+    attributes:
+      prospect:
+        first_name: "Prénom"
+        address: "Adresse"
+        phone_number: "Numéro de téléphone"
+        email: "Email"
+        role: "Role dans l'entreprise"
+        roles:
+          admin_board: "Membre du conseil d'administration"
+          surveillance_board: "Membre du conseil de surveillance"
+          directory: "Membre du directoire"
+          operation_director: "Responsable des operations"
+          other: "Autres"
+        is_responsible: "Responsable?"
+      company:
+        localisation: "Domiciliation"
+        localisations:
+          france: "En France"
+          abroad: "A l'étranger"
+        type: "Structure"
+        types:
+          epic: "EPIC"
+          subsidiary: "Filiale"
+          company_group: "Groupe"
+          company: "Société"
+        employee_count: "Nombre d'employés"
+        turnover: "Chiffre d'affaire"
+      report:
+        score: "Score"
+        result: "Résultat"
