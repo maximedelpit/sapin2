@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205193234) do
+ActiveRecord::Schema.define(version: 20171205203908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20171205193234) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "report_obligations", force: :cascade do |t|
+    t.bigint "report_id"
+    t.bigint "obligation_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["obligation_id"], name: "index_report_obligations_on_obligation_id"
+    t.index ["report_id"], name: "index_report_obligations_on_report_id"
+  end
+
   create_table "reports", force: :cascade do |t|
     t.float "score"
     t.integer "result"
@@ -62,5 +72,7 @@ ActiveRecord::Schema.define(version: 20171205193234) do
   end
 
   add_foreign_key "dispositions", "obligations"
+  add_foreign_key "report_obligations", "obligations"
+  add_foreign_key "report_obligations", "reports"
   add_foreign_key "reports", "companies"
 end
