@@ -2,5 +2,5 @@
 
 Rails.application.routes.draw do
   root 'prospects#new'
-  resources :prospects, only: [:create]
+  resources :prospects, only: %i[create]
 end
