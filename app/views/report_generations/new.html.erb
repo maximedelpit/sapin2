@@ -1,5 +1,6 @@
 <div>
-  <%= simple_form_for(@form, url: prospects_path) do |f| %>
+  <%= simple_form_for(@form, url: report_generations_path) do |f| %>
+    <%= f.error :base %>
     <%= f.input :first_name %>
     <%= f.input :email %>
     <%= f.input :phone_number %>

@@ -14,12 +14,12 @@ class ReportGenerationForm
   attr_accessor :firm_type
   attr_accessor :employees_count
   attr_accessor :turnover
+  attr_accessor :company
 
-  phony_normalize :phone_number, as: :phone_number_normalized
+  phony_normalize :phone_number
 
   validates :first_name, presence: true
-  validates :phone_number, presence: true
-  validates_plausible_phone :phone_number_normalized, presence: true
+  validates_plausible_phone :phone_number, presence: true
   validates :email, presence: true, email: true
   validates :role, presence: true, inclusion: { in: Prospect.roles.keys }
   validates :localisation, presence: true, inclusion: { in: Company.localisations.keys }
@@ -30,10 +30,11 @@ class ReportGenerationForm
   def save
     return false unless valid?
 
-    prospect = Prospect.create(first_name: first_name, phone_number: phone_number_normalized,
+    prospect = Prospect.create(first_name: first_name, phone_number: phone_number,
                                email: email, role: role, is_responsible: responsible?)
-    Company.create(localisation: localisation, firm_type: firm_type, turnover: turnover,
-                   employees_count: employees_count, prospect: prospect)
+    @company = Company.create(localisation: localisation, firm_type: firm_type,
+                              turnover: turnover, employees_count: employees_count,
+                              prospect: prospect)
   end
 
   private

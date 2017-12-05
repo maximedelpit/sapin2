@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'prospects#new'
-  resources :prospects, only: %i[create]
+  root 'report_generations#new'
+  resources :report_generations, only: %i[create]
 end

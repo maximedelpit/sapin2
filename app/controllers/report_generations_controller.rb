@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
 # Controlelr to gather infos about the prospect
-class ProspectsController < ApplicationController
+class ReportGenerationsController < ApplicationController
   def new
     @form = ReportGenerationForm.new
   end
 
   def create
     @form = ReportGenerationForm.new(report_generation_form_params)
-    @form.save
+    if @form.save
+      ReportGenerator.new(@form.company).call
+    else
+      render :new
+    end
   end
 
   private
