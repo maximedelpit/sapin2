@@ -14,4 +14,6 @@
 # Model the legal obligations for the companies concerned by the Sapin2 law
 class Obligation < ApplicationRecord
   enum category: %i[main other]
+
+  has_many :dispositions, dependent: :destroy
 end

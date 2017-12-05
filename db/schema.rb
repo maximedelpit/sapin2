@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205192846) do
+ActiveRecord::Schema.define(version: 20171205193234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20171205192846) do
     t.datetime "updated_at", null: false
     t.bigint "prospect_id"
     t.index ["prospect_id"], name: "index_companies_on_prospect_id"
+  end
+
+  create_table "dispositions", force: :cascade do |t|
+    t.string "title"
+    t.bigint "obligation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["obligation_id"], name: "index_dispositions_on_obligation_id"
   end
 
   create_table "obligations", force: :cascade do |t|
@@ -53,5 +61,6 @@ ActiveRecord::Schema.define(version: 20171205192846) do
     t.index ["company_id"], name: "index_reports_on_company_id"
   end
 
+  add_foreign_key "dispositions", "obligations"
   add_foreign_key "reports", "companies"
 end
