@@ -6,7 +6,7 @@
 #
 #  id              :integer          not null, primary key
 #  localisation    :integer
-#  type            :integer
+#  firm_type       :integer
 #  employees_count :integer
 #  turnover        :integer
 #  created_at      :datetime         not null
@@ -21,10 +21,10 @@
 # Model the company the prospects belongs to and
 # its properties which will allow generate the report
 class Company < ApplicationRecord
-  enum localisation: %i[france abroad]
-  enum type: %i[epic subsidiary company_group company]
-  enum turnover: %i[less_100 more_100]
-  enum employees_count: %i[less_50 50_to_500 more_500]
+  enum localisation: %i[in_france abroad]
+  enum firm_type: %i[epic subsidiary company_group company]
+  enum turnover: %i[small_turnover big_turnover]
+  enum employees_count: %i[small medium large]
 
   belongs_to :prospect
   has_one :report, dependent: :nullify
