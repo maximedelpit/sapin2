@@ -31,8 +31,15 @@ class ReportGenerationForm
     return false unless valid?
 
     prospect = Prospect.create(first_name: first_name, phone_number: phone_number_normalized,
-                               email: email, role: role)
+                               email: email, role: role, is_responsible: responsible?)
     Company.create(localisation: localisation, firm_type: firm_type, turnover: turnover,
                    employees_count: employees_count, prospect: prospect)
+  end
+
+  private
+
+  def responsible?
+    return true unless role == Prospect.roles.keys.last
+    false
   end
 end
