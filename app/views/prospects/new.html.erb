@@ -3,8 +3,12 @@
     <%= f.input :first_name %>
     <%= f.input :email %>
     <%= f.input :phone_number %>
-    <%= f.input :localisation %>
-    <%= f.input :firm_type %>
+    <%= f.label :role %>
+    <%= f.select :role, enum_options_for_select(Prospect, :role) %>
+    <%= f.label :localisation %>
+    <%= f.select :localisation, enum_options_for_select(Company, :localisation) %>
+    <%= f.label :firm_type %>
+    <%= f.select :firm_type, enum_options_for_select(Company, :type) %>
     <%= f.input :employee_count %>
     <%= f.input :turnover %>
     <%= f.button :submit %>
