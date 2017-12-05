@@ -22,6 +22,8 @@ gem 'oj', '~> 3.3', '>= 3.3.9'
 gem 'overcommit', '~> 0.41.0'
 gem 'rollbar', '~> 2.15', '>= 2.15.5'
 
+gem 'rails-i18n', '~> 5.0', '>= 5.0.4'
+
 group :development do
   gem 'annotate', '~> 2.7', '>= 2.7.2'
   gem 'awesome_print', '~> 1.8'
