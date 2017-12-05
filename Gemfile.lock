@@ -111,6 +111,10 @@ GEM
     parser (2.4.0.2)
       ast (~> 2.3)
     pg (0.21.0)
+    phony (2.15.49)
+    phony_rails (0.14.6)
+      activesupport (>= 3.0)
+      phony (> 2.15)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -231,6 +235,7 @@ DEPENDENCIES
   oj (~> 3.3, >= 3.3.9)
   overcommit (~> 0.41.0)
   pg
+  phony_rails (~> 0.14.6)
   pry-byebug
   pry-rails
   puma
