@@ -14,7 +14,7 @@ class ProspectsController < ApplicationController
   private
 
   def report_generation_form_params
-    params.require(:report_generation_form).permit(:first_name, :address, :phone_number, :email,
+    params.require(:report_generation_form).permit(:first_name, :phone_number, :email,
                                                    :role, :localisation, :firm_type,
                                                    :employee_count, :turnover)
   end
