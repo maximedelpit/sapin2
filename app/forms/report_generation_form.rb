@@ -23,13 +23,16 @@ class ReportGenerationForm
   validates :email, presence: true, email: true
   validates :role, presence: true, inclusion: { in: Prospect.roles.keys }
   validates :localisation, presence: true, inclusion: { in: Company.localisations.keys }
-  validates :firm_type, presence: true, inclusion: { in: Company.types.keys }
+  validates :firm_type, presence: true, inclusion: { in: Company.firm_types.keys }
   validates :turnover, presence: true, inclusion: { in: Company.turnovers.keys }
   validates :employees_count, presence: true, inclusion: { in: Company.employees_counts.keys }
 
   def save
     return false unless valid?
-    # create prospects (with geocoder address)
-    # create company
+
+    prospect = Prospect.create(first_name: first_name, phone_number: phone_number_normalized,
+                               email: email, role: role)
+    Company.create(localisation: localisation, firm_type: firm_type, turnover: turnover,
+                   employees_count: employees_count, prospect: prospect)
   end
 end
