@@ -8,7 +8,7 @@
     <%= f.label :localisation %>
     <%= f.select :localisation, enum_options_for_select(Company, :localisation) %>
     <%= f.label :firm_type %>
-    <%= f.select :firm_type, enum_options_for_select(Company, :type) %>
+    <%= f.select :firm_type, enum_options_for_select(Company, :firm_type) %>
     <%= f.label :employees_count %>
     <%= f.select :employees_count, enum_options_for_select(Company, :employees_count) %>
     <%= f.label :turnover %>

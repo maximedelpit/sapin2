@@ -21,23 +21,23 @@ fr:
       company:
         localisation: "Domiciliation"
         localisations:
-          france: "En France"
+          in_france: "En France"
           abroad: "A l'étranger"
-        type: "Structure"
-        types:
+        firm_type: "Structure"
+        firm_types:
           epic: "EPIC"
           subsidiary: "Filiale"
           company_group: "Groupe"
           company: "Société"
         employees_count: "Nombre d'employés"
         employees_counts:
-          less_50: "Moins de 50"
-          50_to_500: "De 50 à 500"
-          more_500: "Plus de 500"
+          small: "Moins de 50"
+          medium: "De 50 à 500"
+          large: "Plus de 500"
         turnover: "Chiffre d'affaire"
         turnovers:
-          less_100: "Moins de 100 millions d'euros"
-          more_100: "Plus de 100 millions d'euros"
+          small_turnover: "Moins de 100 millions d'euros"
+          big_turnover: "Plus de 100 millions d'euros"
       report:
         score: "Score"
         result: "Résultat"
