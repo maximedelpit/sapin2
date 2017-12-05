@@ -8,6 +8,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
+
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -31,7 +32,7 @@ group :development do
   gem 'awesome_print', '~> 1.8'
   gem 'brakeman', '~> 4.0', '>= 4.0.1', require: false
   gem 'bullet', '~> 5.7'
-  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'rubocop', '~> 0.51.0', '>= 0.51.0', require: false
 end
 
 group :development, :test do
