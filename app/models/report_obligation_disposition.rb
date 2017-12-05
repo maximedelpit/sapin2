@@ -7,7 +7,7 @@
 #  id                   :integer          not null, primary key
 #  report_obligation_id :integer
 #  disposition_id       :integer
-#  status               :integer
+#  status               :integer          default(0), not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #
