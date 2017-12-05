@@ -9,7 +9,7 @@ class ReportGenerationsController < ApplicationController
   def create
     @form = ReportGenerationForm.new(report_generation_form_params)
     if @form.save
-      ReportGenerator.new(@form.company).call
+      ReportGenerator.new(@form.company.id).call
     else
       render :new
     end
