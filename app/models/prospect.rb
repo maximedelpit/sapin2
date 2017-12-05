@@ -17,5 +17,7 @@
 
 # Model the prospects who will use the website to generate a report
 class Prospect < ApplicationRecord
+  enum role: %i[admin_board surveillance_board directory operation_director other]
+
   has_one :company, dependent: :nullify
 end
