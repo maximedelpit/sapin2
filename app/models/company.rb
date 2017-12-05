@@ -21,6 +21,9 @@
 # Model the company the prospects belongs to and
 # its properties which will allow generate the report
 class Company < ApplicationRecord
+  enum localisation: %i[france abroad]
+  enum type: %i[epic subsidiary company_group company]
+
   belongs_to :prospect
   has_one :report, dependent: :nullify
 end
