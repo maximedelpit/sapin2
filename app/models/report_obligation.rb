@@ -4,12 +4,12 @@
 #
 # Table name: report_obligations
 #
-#  id               :integer          not null, primary key
-#  report_id        :integer
-#  obligation_id    :integer
-#  status           :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id            :integer          not null, primary key
+#  report_id     :integer
+#  obligation_id :integer
+#  status        :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 # Indexes
 #
@@ -28,7 +28,7 @@ class ReportObligation < ApplicationRecord
 
   belongs_to :report
   belongs_to :obligation
-  has_many :report_obligation_dispositions, dependent: :nullify
+  has_many :report_obligation_tasks, dependent: :nullify
 
   validates :status, presence: true, inclusion: { in: ReportObligation.statuses.keys }
 
@@ -36,8 +36,8 @@ class ReportObligation < ApplicationRecord
   scope :important, (-> { includes(:obligation).where(obligations: { category: 'important' }) })
 
   def initialize_rods
-    obligation.dispositions.inject([]) do |arr, disposition|
-      arr << ReportObligationDisposition.new(disposition: disposition, report_obligation: self)
+    obligation.tasks.inject([]) do |arr, task|
+      arr << ReportObligationtask.new(task: task, report_obligation: self)
     end
   end
 end

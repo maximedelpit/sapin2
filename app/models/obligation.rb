@@ -15,7 +15,7 @@
 class Obligation < ApplicationRecord
   enum category: %i[important minor]
 
-  has_many :dispositions, dependent: :destroy
+  has_many :tasks, dependent: :destroy
   has_many :report_obligations, dependent: :nullify
 
   def create_report_obligation(report)

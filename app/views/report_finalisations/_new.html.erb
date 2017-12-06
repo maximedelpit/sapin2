@@ -1,14 +1,14 @@
-<%= form_tag report_finalisation_index_path(@report) do %>
+<%= form_tag finalisation_report_path(@report) do %>
   <% @report_obligations.each do |ro| %>
     <h2><%= ro.obligation.title %></h2>
-    <% ro.obligation.dispositions.each do |d| %>
+    <% ro.obligation.tasks.each do |d| %>
       <h4><%= d.title %></h4>
 
       <%= simple_fields_for 'rods[]',
-          d.report_obligation_dispositions.build(report_obligation: ro) do |f| %>
+          d.report_obligation_tasks.build(report_obligation: ro) do |f| %>
         <%= f.label :status %>
-        <%= f.select :status, enum_options_for_select(ReportObligationDisposition, :status) %>
-        <%= f.hidden_field :disposition_id %>
+        <%= f.select :status, enum_options_for_select(ReportObligationTask, :status) %>
+        <%= f.hidden_field :task_id %>
         <%= f.hidden_field :report_obligation_id %>
       <% end %>
 

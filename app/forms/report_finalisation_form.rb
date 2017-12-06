@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Form object (https://github.com/infinum/rails-handbook/blob/) to manage the report
-# finalisation form (creation report_obligations and dispositions)
+# finalisation form (creation report_obligations and tasks)
 # and avoid to manage form logic in the controller
 class ReportFinalisationForm
   include ActiveModel::Model
@@ -23,9 +23,9 @@ class ReportFinalisationForm
   def create_rods(rods)
     rods.each do |rod|
       report_obligation = ReportObligation.find(rod[:report_obligation_id])
-      disposition = Disposition.find(rod[:disposition_id])
-      ReportObligationDisposition.create!(status: rod[:status], disposition: disposition,
-                                          report_obligation: report_obligation)
+      task = Task.find(rod[:task_id])
+      ReportObligationTask.create!(status: rod[:status], task: task,
+                                   report_obligation: report_obligation)
     end
   end
 end

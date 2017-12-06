@@ -26,7 +26,7 @@ class Report < ApplicationRecord
 
   belongs_to :company
   has_many :report_obligations, dependent: :destroy
-  has_many :report_obligation_dispositions, through: :report_obligations
+  has_many :report_obligation_tasks, through: :report_obligations
 
   validates :score, presence: true
   validates :result, presence: true
