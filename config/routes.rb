@@ -2,5 +2,6 @@
 
 Rails.application.routes.draw do
   root 'report_generations#new'
-  resources :report_generations, only: %i[create]
+  resources :report_generations, only: :create
+  resources :reports, only: :show
 end
