@@ -1,0 +1,20 @@
+<%= simple_form_for(@form, url: report_completions_path) do |f| %>
+
+  <% @form.report_completion_attributes.each do |ro|%>
+    <h2><%= ro[:title] %></h2>
+    <% ro[:rods].each do |rod| %>
+      <h4><%= rod.disposition.title %></h4>
+
+      <%= f.simple_fields_for 'rods[]', rod do |p| %>
+        <%= p.label :status %>
+        <%= p.select :status, enum_options_for_select(ReportObligationDisposition, :status) %>
+        <%= p.hidden_field :disposition_id %>
+        <%= p.hidden_field :report_obligation_id %>
+      <% end %>
+
+    <% end %>
+
+  <% end %>
+  <%= f.hidden_field :part_number, value: part_number %>
+  <%= f.button :submit %>
+<% end %>
