@@ -25,4 +25,17 @@ class Report < ApplicationRecord
   enum result: %i[not_concerned partly_concerned concerned]
 
   belongs_to :company
+  has_many :report_obligations, dependent: :destroy
+  has_many :report_obligation_dispositions, through: :report_obligations
+
+  def find_result
+    case score
+    when 5.5..15.5
+      'partly_concerned'
+    when 15.5..20
+      'concerned'
+    else
+      'not_concerned'
+    end
+  end
 end
