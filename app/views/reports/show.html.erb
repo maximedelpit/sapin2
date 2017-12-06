@@ -1,1 +1,5 @@
-Youpi
+<% @report_obligations.each do |report_obligation| %>
+  <%= report_obligation.obligation.title %> -->
+  <%= enum_i18n(ReportObligation, :status, report_obligation.status) %>
+  <br>
+<% end %>
