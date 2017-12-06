@@ -23,6 +23,8 @@ gem 'oj', '~> 3.3', '>= 3.3.9'
 gem 'overcommit', '~> 0.41.0'
 gem 'rollbar', '~> 2.15', '>= 2.15.5'
 
+gem 'activeadmin', '~> 1.1'
+gem 'devise', '~> 4.3'
 gem 'rails-i18n', '~> 5.0', '>= 5.0.4'
 
 gem 'chartkick', '~> 2.2', '>= 2.2.5'
