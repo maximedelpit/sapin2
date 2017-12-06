@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205232204) do
+ActiveRecord::Schema.define(version: 20171206215259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 20171205232204) do
     t.datetime "updated_at", null: false
     t.bigint "prospect_id"
     t.index ["prospect_id"], name: "index_companies_on_prospect_id"
-  end
-
-  create_table "dispositions", force: :cascade do |t|
-    t.string "title"
-    t.bigint "obligation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["obligation_id"], name: "index_dispositions_on_obligation_id"
   end
 
   create_table "obligations", force: :cascade do |t|
@@ -52,14 +44,14 @@ ActiveRecord::Schema.define(version: 20171205232204) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "report_obligation_dispositions", force: :cascade do |t|
+  create_table "report_obligation_tasks", force: :cascade do |t|
     t.bigint "report_obligation_id"
-    t.bigint "disposition_id"
+    t.bigint "task_id"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["disposition_id"], name: "index_report_obligation_dispositions_on_disposition_id"
-    t.index ["report_obligation_id"], name: "index_report_obligation_dispositions_on_report_obligation_id"
+    t.index ["report_obligation_id"], name: "index_report_obligation_tasks_on_report_obligation_id"
+    t.index ["task_id"], name: "index_report_obligation_tasks_on_task_id"
   end
 
   create_table "report_obligations", force: :cascade do |t|
@@ -81,10 +73,18 @@ ActiveRecord::Schema.define(version: 20171205232204) do
     t.index ["company_id"], name: "index_reports_on_company_id"
   end
 
-  add_foreign_key "dispositions", "obligations"
-  add_foreign_key "report_obligation_dispositions", "dispositions"
-  add_foreign_key "report_obligation_dispositions", "report_obligations"
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.bigint "obligation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["obligation_id"], name: "index_tasks_on_obligation_id"
+  end
+
+  add_foreign_key "report_obligation_tasks", "report_obligations"
+  add_foreign_key "report_obligation_tasks", "tasks"
   add_foreign_key "report_obligations", "obligations"
   add_foreign_key "report_obligations", "reports"
   add_foreign_key "reports", "companies"
+  add_foreign_key "tasks", "obligations"
 end

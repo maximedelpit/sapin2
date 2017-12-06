@@ -5,9 +5,9 @@ fr:
       company: "Entreprise"
       report: "Rapport"
       obligation: "Obligation légale"
-      disposition: "Etape pour êtres en règle"
+      task: "Etape pour êtres en règle"
       report_obligation: "Obligation légale"
-      report_obligation_disposition: "Etape pour être en règle"
+      report_obligation_task: "Etape pour être en règle"
     attributes:
       prospect:
         first_name: "Prénom"
@@ -55,7 +55,7 @@ fr:
         categories:
           important: "Indispensable"
           minor: "Recommandé"
-      disposition:
+      task:
         title: "Intitulé"
       report_obligation:
         status: "Recommandation"
@@ -63,7 +63,7 @@ fr:
           not_needed: "Facultatif"
           recommended: "Recommandé"
           needed: "Obligatoire"
-      report_obligation_disposition:
+      report_obligation_task:
         status: "Statut"
         statuses:
           to_do: "A faire"
