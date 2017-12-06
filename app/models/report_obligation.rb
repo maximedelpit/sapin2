@@ -4,12 +4,12 @@
 #
 # Table name: report_obligations
 #
-#  id            :integer          not null, primary key
-#  report_id     :integer
-#  obligation_id :integer
-#  status        :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id               :integer          not null, primary key
+#  report_id        :integer
+#  obligation_id    :integer
+#  status           :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 # Indexes
 #
@@ -29,6 +29,8 @@ class ReportObligation < ApplicationRecord
   belongs_to :report
   belongs_to :obligation
   has_many :report_obligation_dispositions, dependent: :nullify
+
+  validates :status, presence: true, inclusion: { in: ReportObligation.statuses.keys }
 
   scope :minor, (-> { includes(:obligation).where(obligations: { category: 'minor' }) })
   scope :important, (-> { includes(:obligation).where(obligations: { category: 'important' }) })

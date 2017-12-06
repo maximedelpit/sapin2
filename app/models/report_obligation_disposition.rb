@@ -7,7 +7,7 @@
 #  id                   :integer          not null, primary key
 #  report_obligation_id :integer
 #  disposition_id       :integer
-#  status               :integer          default(0), not null
+#  status    :integer          default(0), not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #
@@ -28,4 +28,6 @@ class ReportObligationDisposition < ApplicationRecord
 
   belongs_to :report_obligation
   belongs_to :disposition
+
+  validates :status, presence: true, inclusion: { in: ReportObligationDisposition.statuses.keys }
 end

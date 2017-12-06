@@ -28,6 +28,9 @@ class Report < ApplicationRecord
   has_many :report_obligations, dependent: :destroy
   has_many :report_obligation_dispositions, through: :report_obligations
 
+  validates :score, presence: true
+  validates :result, presence: true
+
   def find_result
     case score
     when 5.5..15.5

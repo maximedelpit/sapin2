@@ -29,6 +29,11 @@ class Company < ApplicationRecord
   belongs_to :prospect
   has_one :report, dependent: :nullify
 
+  validates :localisation, presence: true, inclusion: { in: localisations.keys }
+  validates :firm_type, presence: true, inclusion: { in: firm_types.keys }
+  validates :turnover, presence: true, inclusion: { in: turnovers.keys }
+  validates :employees_count, presence: true, inclusion: { in: employees_counts.keys }
+
   def calculate_score
     score_company_type + score_localisation + score_employees_count + score_turnover
   end
