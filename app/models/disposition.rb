@@ -22,4 +22,9 @@
 # Model the disposition that company should take to respect the obligations of the Sapin2 law
 class Disposition < ApplicationRecord
   belongs_to :obligation
+  has_many :report_obligation_dispositions, dependent: :nullify
+
+  def create_report_obligation_disposition(report_obligation)
+    report_obligation_dispositions.create(report_obligation: report_obligation)
+  end
 end
