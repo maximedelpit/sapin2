@@ -24,4 +24,9 @@
 
 # Link a report and its obligations and show their status depending on the result of the report
 class ReportObligation < ApplicationRecord
+  enum status: %i[not_needed recommended needed]
+
+  belongs_to :report
+  belongs_to :obligation
+  has_many :report_obligation_dispositions, dependent: :nullify
 end

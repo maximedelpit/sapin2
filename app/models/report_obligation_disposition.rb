@@ -24,6 +24,8 @@
 
 # Model the status of all dispositions the company has to take for a given obligations
 class ReportObligationDisposition < ApplicationRecord
+  enum status: %i[to_do doing done]
+
   belongs_to :report_obligation
   belongs_to :disposition
 end
