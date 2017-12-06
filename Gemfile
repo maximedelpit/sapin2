@@ -25,6 +25,7 @@ gem 'rollbar', '~> 2.15', '>= 2.15.5'
 
 gem 'rails-i18n', '~> 5.0', '>= 5.0.4'
 
+gem 'chartkick', '~> 2.2', '>= 2.2.5'
 gem 'phony_rails', '~> 0.14.6'
 
 group :development do

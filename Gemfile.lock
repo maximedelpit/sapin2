@@ -62,6 +62,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.1.0)
+    chartkick (2.2.5)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.2)
@@ -227,6 +228,7 @@ DEPENDENCIES
   bootstrap-sass
   brakeman (~> 4.0, >= 4.0.1)
   bullet (~> 5.7)
+  chartkick (~> 2.2, >= 2.2.5)
   figaro (~> 1.1, >= 1.1.1)
   font-awesome-sass
   jbuilder (~> 2.0)
