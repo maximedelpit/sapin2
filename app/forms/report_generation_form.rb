@@ -29,7 +29,6 @@ class ReportGenerationForm
 
   def save
     return false unless valid?
-
     prospect = Prospect.create(first_name: first_name, phone_number: phone_number,
                                email: email, role: role, is_responsible: responsible?)
     @company = Company.create(localisation: localisation, firm_type: firm_type,
