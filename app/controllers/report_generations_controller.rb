@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Controlelr to gather infos about the prospect
+# Controller to gather infos about the prospect and create the report for its company
 class ReportGenerationsController < ApplicationController
   def new
     @form = ReportGenerationForm.new
@@ -9,7 +9,8 @@ class ReportGenerationsController < ApplicationController
   def create
     @form = ReportGenerationForm.new(report_generation_form_params)
     if @form.save
-      ReportGenerator.new(@form.company.id).call
+      report = ReportGenerator.new(@form.company.id).call
+      redirect_to report_path(report)
     else
       render :new
     end
