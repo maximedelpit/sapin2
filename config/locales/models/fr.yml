@@ -4,6 +4,10 @@ fr:
       prospect: "Prospects"
       company: "Entreprise"
       report: "Rapport"
+      obligation: "Obligation légale"
+      disposition: "Etape pour êtres en règle"
+      report_obligation: "Obligation légale"
+      report_obligation_disposition: "Etape pour être en règle"
     attributes:
       prospect:
         first_name: "Prénom"
@@ -45,3 +49,23 @@ fr:
           not_concerned: "Concernée"
           partly_concerned: "Potentiellement Concernée"
           concerned: "Non concernée"
+      obligation:
+        title: "Intitulé"
+        category: "Type d'obligation"
+        categories:
+          important: "Indispensable"
+          less_important: "Recommandé"
+      disposition:
+        title: "Intitulé"
+      report_obligation:
+        status: "Recommandation"
+        statuses:
+          not_needed: "Facultatif"
+          recommended: "Recommandé"
+          needed: "Obligatoire"
+      report_obligation_disposition:
+        status: "Statut"
+        statuses:
+          to_do: "A faire"
+          doing: "En cours"
+          done: "Fait"
