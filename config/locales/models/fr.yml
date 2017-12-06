@@ -54,7 +54,7 @@ fr:
         category: "Type d'obligation"
         categories:
           important: "Indispensable"
-          less_important: "Recommandé"
+          minor: "Recommandé"
       disposition:
         title: "Intitulé"
       report_obligation:
