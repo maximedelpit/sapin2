@@ -1,0 +1,19 @@
+<div>
+  <%= simple_form_for(@form, url: report_generations_path) do |f| %>
+    <%= f.error :base %>
+    <%= f.input :first_name %>
+    <%= f.input :email %>
+    <%= f.input :phone_number %>
+    <%= f.label :role %>
+    <%= f.select :role, enum_options_for_select(Prospect, :role) %>
+    <%= f.label :localisation %>
+    <%= f.select :localisation, enum_options_for_select(Company, :localisation) %>
+    <%= f.label :firm_type %>
+    <%= f.select :firm_type, enum_options_for_select(Company, :firm_type) %>
+    <%= f.label :employees_count %>
+    <%= f.select :employees_count, enum_options_for_select(Company, :employees_count) %>
+    <%= f.label :turnover %>
+    <%= f.select :turnover, enum_options_for_select(Company, :turnover) %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

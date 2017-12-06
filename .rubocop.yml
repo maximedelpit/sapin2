@@ -10,3 +10,12 @@ AllCops:
     - config/initializers/simple_form_bootstrap.rb
     - db/migrate/*
     - db/schema.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - lib/tasks/auto_annotate_models.rake
+    - config/environments/development.rb
+
+Rails/Output:
+  Exclude:
+    - db/seeds.rb

@@ -1,0 +1,14 @@
+fr:
+  simple_form:
+  activemodel:
+    models:
+      report_generation_form: "Rapport"
+    attributes:
+      report_generation_form:
+        first_name: "Prénom"
+        email: "Email"
+        phone_number: "Numéro de téléphone"
+        localisation: "Domiciliation de l'entreprise"
+        firm_type: "Type de structure"
+        employees_count: "Nombre d'employés"
+        turnover: "Chiffre d'affaire"

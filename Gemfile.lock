@@ -46,7 +46,13 @@ GEM
     autoprefixer-rails (7.2.1)
       execjs
     awesome_print (1.8.0)
+    better_errors (2.4.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.5.0)
+    binding_of_caller (0.7.3)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -61,6 +67,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    debug_inspector (0.0.3)
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -104,6 +111,10 @@ GEM
     parser (2.4.0.2)
       ast (~> 2.3)
     pg (0.21.0)
+    phony (2.15.49)
+    phony_rails (0.14.6)
+      activesupport (>= 3.0)
+      phony (> 2.15)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -134,6 +145,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (5.0.4)
+      i18n (~> 0.7)
+      railties (~> 5.0)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -208,6 +222,8 @@ DEPENDENCIES
   annotate (~> 2.7, >= 2.7.2)
   autoprefixer-rails
   awesome_print (~> 1.8)
+  better_errors (~> 2.1, >= 2.1.1)
+  binding_of_caller (~> 0.7.3)
   bootstrap-sass
   brakeman (~> 4.0, >= 4.0.1)
   bullet (~> 5.7)
@@ -219,13 +235,15 @@ DEPENDENCIES
   oj (~> 3.3, >= 3.3.9)
   overcommit (~> 0.41.0)
   pg
+  phony_rails (~> 0.14.6)
   pry-byebug
   pry-rails
   puma
   rails (= 5.1.4)
+  rails-i18n (~> 5.0, >= 5.0.4)
   redis
   rollbar (~> 2.15, >= 2.15.5)
-  rubocop (~> 0.51.0)
+  rubocop (~> 0.51.0, >= 0.51.0)
   sass-rails
   simple_form
   spring

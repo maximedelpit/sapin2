@@ -1,0 +1,71 @@
+fr:
+  activerecord:
+    models:
+      prospect: "Prospects"
+      company: "Entreprise"
+      report: "Rapport"
+      obligation: "Obligation légale"
+      disposition: "Etape pour êtres en règle"
+      report_obligation: "Obligation légale"
+      report_obligation_disposition: "Etape pour être en règle"
+    attributes:
+      prospect:
+        first_name: "Prénom"
+        address: "Adresse"
+        phone_number: "Numéro de téléphone"
+        email: "Email"
+        role: "Role dans l'entreprise"
+        roles:
+          admin_board: "Membre du conseil d'administration"
+          surveillance_board: "Membre du conseil de surveillance"
+          directory: "Membre du directoire"
+          operation_director: "Responsable des operations"
+          other: "Autres"
+        is_responsible: "Responsable?"
+      company:
+        localisation: "Domiciliation"
+        localisations:
+          in_france: "En France"
+          abroad: "A l'étranger"
+        firm_type: "Structure"
+        firm_types:
+          epic: "EPIC"
+          subsidiary: "Filiale"
+          company_group: "Groupe"
+          company: "Société"
+        employees_count: "Nombre d'employés"
+        employees_counts:
+          small: "Moins de 50"
+          medium: "De 50 à 500"
+          large: "Plus de 500"
+        turnover: "Chiffre d'affaire"
+        turnovers:
+          small_turnover: "Moins de 100 millions d'euros"
+          big_turnover: "Plus de 100 millions d'euros"
+      report:
+        score: "Score"
+        result: "Résultat"
+        results:
+          not_concerned: "Concernée"
+          partly_concerned: "Potentiellement Concernée"
+          concerned: "Non concernée"
+      obligation:
+        title: "Intitulé"
+        category: "Type d'obligation"
+        categories:
+          important: "Indispensable"
+          less_important: "Recommandé"
+      disposition:
+        title: "Intitulé"
+      report_obligation:
+        status: "Recommandation"
+        statuses:
+          not_needed: "Facultatif"
+          recommended: "Recommandé"
+          needed: "Obligatoire"
+      report_obligation_disposition:
+        status: "Statut"
+        statuses:
+          to_do: "A faire"
+          doing: "En cours"
+          done: "Fait"
