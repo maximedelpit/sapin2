@@ -8,23 +8,23 @@ class ReportGenerator
 
   def call
     create_report
+    create_associated_report_obligations
+    @report
   end
 
   private
 
   def create_report
-    score = @company.calculate_score
-    Report.create(company: @company, score: score, result: get_result(score))
+    @report = Report.create(company: @company, score: @company.calculate_score)
+    @report.update(result: @report.find_result)
   end
 
-  def get_result(score)
-    case score
-    when 5.5..15.5
-      'partly_concerned'
-    when 15.5..20
-      'concerned'
-    else
-      'not_concerned'
+  def create_associated_report_obligations
+    Obligation.all.each do |obligation|
+      report_obligation = obligation.create_report_obligation(@report)
+      obligation.dispositions.each do |disposition|
+        disposition.create_report_obligation_disposition(report_obligation)
+      end
     end
   end
 end
