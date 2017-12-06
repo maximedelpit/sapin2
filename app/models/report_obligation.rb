@@ -29,4 +29,13 @@ class ReportObligation < ApplicationRecord
   belongs_to :report
   belongs_to :obligation
   has_many :report_obligation_dispositions, dependent: :nullify
+
+  scope :minor, (-> { includes(:obligation).where(obligations: { category: 'minor' }) })
+  scope :important, (-> { includes(:obligation).where(obligations: { category: 'important' }) })
+
+  def initialize_rods
+    obligation.dispositions.inject([]) do |arr, disposition|
+      arr << ReportObligationDisposition.new(disposition: disposition, report_obligation: self)
+    end
+  end
 end
