@@ -1,0 +1,3 @@
+<%= form_tag report_third_step_path(@report) do %>
+  <%= render partial: "reports/tasks_form", locals: { report_obligations: @report_obligations } %>
+<% end %>

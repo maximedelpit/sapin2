@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-# generate the report for a company and all the associated objects
-class ReportGenerator
+# Initialize the report for a company and all the associated objects
+# (prospect, company, report_obligations)
+class ReportInitializor
   def initialize(company_id)
     @company = Company.find_by(id: company_id)
   end

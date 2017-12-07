@@ -2,9 +2,10 @@ fr:
   simple_form:
   activemodel:
     models:
-      report_generation_form: "Rapport"
+      report_initialization_form: "Rapport"
+      report_tasks_create_form: "To do's"
     attributes:
-      report_generation_form:
+      report_initialization_form:
         first_name: "Prénom"
         email: "Email"
         phone_number: "Numéro de téléphone"

@@ -12,5 +12,5 @@ fr:
       short: "%-d %b à %H:%M"
     pm: pm
   facades:
-    dashboard:
+    report_dashboard:
       number_of_tasks: "Nombre de tâches"

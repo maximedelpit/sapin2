@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Interface object to make the necessary ressources available to the report finalisation show
-class DashboardFacade
+# Interface object to make the necessary ressources available to the report dashboard show
+class ReportDashboardFacade
   attr_reader :report
 
   def initialize(report_id)
@@ -25,7 +25,7 @@ class DashboardFacade
   end
 
   def column_chart_options
-    { legend: 'bottom', ytitle: I18n.translate('facades.dashboard.number_of_tasks'),
+    { legend: 'bottom', ytitle: I18n.translate('facades.report_dashboard.number_of_tasks'),
       library: { scales: {
         xAxes: [{ ticks: {
           autoSkip: false, maxRotation: 10,

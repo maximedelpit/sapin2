@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # Form object (https://github.com/infinum/rails-handbook/blob/) to manage the report
-# finalisation form (creation report_obligations and tasks)
+# tasks creation form (step 2 and 3: creation report_obligation_tasks)
 # and avoid to manage form logic in the controller
-class ReportFinalisationForm
+class ReportTasksCreationForm
   include ActiveModel::Model
   include ActiveModel::Validations::Callbacks
 
@@ -31,7 +31,8 @@ class ReportFinalisationForm
   def create_report_task(report_task)
     report_obligation = ReportObligation.find(report_task[:report_obligation_id])
     task = Task.find(report_task[:task_id])
-    ReportObligationTask.create!(status: report_task[:status], task: task,
-                                 report_obligation: report_obligation)
+    rt = ReportObligationTask.find_or_initialize_by(task: task,
+                                                    report_obligation: report_obligation)
+    rt.update!(status: report_task[:status])
   end
 end

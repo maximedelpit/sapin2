@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 # Form object (https://github.com/infinum/rails-handbook/blob/) to manage the report
-# generation form and avoid to manage form logic in the controller
-class ReportGenerationForm
+# initialization form (step 1) and avoid to manage form logic in the controller
+class ReportInitializationForm
   include ActiveModel::Model
   include ActiveModel::Validations::Callbacks
 

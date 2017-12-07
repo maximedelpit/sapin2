@@ -1,0 +1,16 @@
+<% @report_obligations.each do |report_obligation| %>
+  <h2><%= report_obligation.obligation.title %></h2>
+  <% report_obligation.obligation.tasks.each do |task| %>
+    <h4><%= task.title %></h4>
+
+    <%= simple_fields_for 'report_tasks[]', task.build_report_task(report_obligation) do |f| %>
+      <%= f.label :status %>
+      <%= f.select :status, enum_options_for_select(ReportObligationTask, :status) %>
+      <%= f.hidden_field :task_id %>
+      <%= f.hidden_field :report_obligation_id %>
+    <% end %>
+
+  <% end %>
+
+<% end %>
+<%= submit_tag %>

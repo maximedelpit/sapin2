@@ -4,16 +4,15 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root 'report_generations#new'
-  resources :report_generations, only: :create
-  resources :reports, only: :show do
-    member do
-      get 'part1', to: 'important_report_obligations#index'
-      get 'part2', to: 'minor_report_obligations#index'
-      post 'finalisation', to: 'report_finalisations#create'
-      get 'dashboard', to: 'report_finalisations#show'
-    end
+  root 'reports/first_steps#new'
+
+  resources :report, only: %i[new create show], controller: 'reports/first_steps'
+
+  resources :reports, only: [] do
+    resource :second_step, only: %i[new create], controller: 'reports/second_steps'
+    resource :third_step, only: %i[new create], controller: 'reports/third_steps'
+    resource :dashboard, only: :show, controller: 'reports/dashboards'
+
     get 'completed_tasks', to: 'charts#completed_tasks'
-    get 'completed_tasks_by_obligation', to: 'charts#completed_tasks_by_obligation'
   end
 end
