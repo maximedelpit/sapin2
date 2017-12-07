@@ -26,7 +26,10 @@ class Report < ApplicationRecord
 
   belongs_to :company
   has_many :report_obligations, dependent: :destroy
-  has_many :report_obligation_dispositions, through: :report_obligations
+  has_many :report_obligation_tasks, through: :report_obligations
+
+  validates :score, presence: true
+  validates :result, presence: true
 
   def find_result
     case score
@@ -37,5 +40,24 @@ class Report < ApplicationRecord
     else
       'not_concerned'
     end
+  end
+
+  def report_task_by_status
+    task_by_status = report_obligation_tasks.group(:status).count
+    total_tasks = report_obligation_tasks.count
+    convert_values_to_percentages(task_by_status, total_tasks)
+  end
+
+  def report_task_by_obligation_and_status
+    report_obligation_tasks.eager_load(report_obligation: :obligation)
+                           .order('obligations.title')
+                           .group(:status, 'obligations.title')
+                           .count
+  end
+
+  private
+
+  def convert_values_to_percentages(task_by_status, total_tasks)
+    task_by_status.transform_values { |v| (v.to_f / total_tasks * 100).round(1) }
   end
 end

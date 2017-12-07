@@ -1,5 +1,16 @@
 fr:
   date:
     formats:
+      default: "%-d/%-m/%Y"
+      long: "%-d de %B de %Y"
+      short: "%-d de %b"
   time:
+    am: am
     formats:
+      default: "%A, %-d %B %Y à %H:%M:%S %z"
+      long: "%-d %B %Y à %H:%M"
+      short: "%-d %b à %H:%M"
+    pm: pm
+  facades:
+    dashboard:
+      number_of_tasks: "Nombre de tâches"

@@ -20,4 +20,9 @@ class Prospect < ApplicationRecord
   enum role: %i[admin_board surveillance_board directory operation_director other]
 
   has_one :company, dependent: :nullify
+
+  validates :role, presence: true, inclusion: { in: Prospect.roles.keys }
+  validates :first_name, presence: true
+  validates_plausible_phone :phone_number, presence: true
+  validates :email, presence: true, email: true
 end

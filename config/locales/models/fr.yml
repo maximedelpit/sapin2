@@ -1,13 +1,14 @@
 fr:
   activerecord:
     models:
-      prospect: "Prospects"
+      prospect: "Prospect"
       company: "Entreprise"
       report: "Rapport"
       obligation: "Obligation légale"
-      disposition: "Etape pour êtres en règle"
+      task: "Etape pour êtres en règle"
       report_obligation: "Obligation légale"
-      report_obligation_disposition: "Etape pour être en règle"
+      report_obligation_task: "Etape pour être en règle"
+      admin_user: "Administrateur"
     attributes:
       prospect:
         first_name: "Prénom"
@@ -21,7 +22,9 @@ fr:
           directory: "Membre du directoire"
           operation_director: "Responsable des operations"
           other: "Autres"
-        is_responsible: "Responsable?"
+        is_responsible: "Responsable juridiquement?"
+        created_at: "Créer le"
+        updated_at: "modifié le"
       company:
         localisation: "Domiciliation"
         localisations:
@@ -54,8 +57,8 @@ fr:
         category: "Type d'obligation"
         categories:
           important: "Indispensable"
-          less_important: "Recommandé"
-      disposition:
+          minor: "Recommandé"
+      task:
         title: "Intitulé"
       report_obligation:
         status: "Recommandation"
@@ -63,9 +66,16 @@ fr:
           not_needed: "Facultatif"
           recommended: "Recommandé"
           needed: "Obligatoire"
-      report_obligation_disposition:
+      report_obligation_task:
         status: "Statut"
         statuses:
           to_do: "A faire"
           doing: "En cours"
           done: "Fait"
+      user_admin:
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+        email: "Email"
+        sign_in_count: "Nombre de connection"
+        current_sign_in_at: "Connection actuelle depuis"
+        created_at: "Créé le"

@@ -1,3 +1,4 @@
 fr:
-  prospects:
-    new:
+  report_finalisations:
+    show:
+      pie_title: "Status des tâches (en pourcentage)"

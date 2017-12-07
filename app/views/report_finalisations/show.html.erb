@@ -1,0 +1,11 @@
+<h1><%= @dashboard.prospect.first_name %></h1>
+<% @dashboard.report_obligations.each do |report_obligation| %>
+  <h2><%= report_obligation.obligation.title %></h2>
+  <% report_obligation.report_obligation_tasks.each do |report_task| %>
+    <p><%= report_task.task.title %> <strong><%= report_task.status %></strong></p>
+  <% end %>
+<% end %>
+
+<%= pie_chart report_completed_tasks_path(@dashboard.report),
+  title: t('.pie_title'), legend: "bottom" %>
+<%= column_chart @dashboard.column_chart_data, @dashboard.column_chart_options  %>

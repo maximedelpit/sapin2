@@ -28,5 +28,16 @@ class ReportObligation < ApplicationRecord
 
   belongs_to :report
   belongs_to :obligation
-  has_many :report_obligation_dispositions, dependent: :nullify
+  has_many :report_obligation_tasks, dependent: :nullify
+
+  validates :status, presence: true, inclusion: { in: ReportObligation.statuses.keys }
+
+  scope :minor, (-> { includes(:obligation).where(obligations: { category: 'minor' }) })
+  scope :important, (-> { includes(:obligation).where(obligations: { category: 'important' }) })
+
+  def initialize_report_tasks
+    obligation.tasks.inject([]) do |arr, task|
+      arr << ReportObligationTask.new(task: task, report_obligation: self)
+    end
+  end
 end

@@ -1,1 +1,6 @@
-Youpi
+<% @report.report_obligations.includes(:obligation).each do |report_obligation| %>
+  <%= report_obligation.obligation.title %> -->
+  <%= enum_i18n(ReportObligation, :status, report_obligation.status) %>
+  <br>
+<% end %>
+<%= link_to "Next Step", part1_report_path(@report) %>

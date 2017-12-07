@@ -21,10 +21,7 @@ class ReportGenerator
 
   def create_associated_report_obligations
     Obligation.all.each do |obligation|
-      report_obligation = obligation.create_report_obligation(@report)
-      obligation.dispositions.each do |disposition|
-        disposition.create_report_obligation_disposition(report_obligation)
-      end
+      obligation.create_report_obligation(@report)
     end
   end
 end
