@@ -108,10 +108,6 @@ fr:
         title: "Connexion"
         remember_me: "Garder ma session ouverte"
         submit: "Se connecter"
-      failure:
-       admin_user:
-        unauthenticated: "Merci de vous connecter pour accéder à l'interface administrateur"
-        signed_in: "Vous êtes bien connecté"
       reset_password:
         title: "Vous avez oublié votre mot de passe ?"
         submit: "Réinitialiser mon mot de passe"
@@ -142,3 +138,12 @@ fr:
       block: "Liste"
       grid: "Grille"
       blog: "Blog"
+  devise:
+    failure:
+      admin_user:
+        unauthenticated: "Merci de vous connecter pour accéder à l'interface administrateur"
+        not_found_in_database: "Compte non trouvé"
+        invalid: "Mauvais mot de passe"
+    sessions:
+      admin_user:
+        signed_in: "Vous êtes bien connecté"
