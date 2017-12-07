@@ -35,7 +35,8 @@ class Company < ApplicationRecord
   validates :employees_count, presence: true, inclusion: { in: employees_counts.keys }
 
   def calculate_score
-    score_company_type + score_localisation + score_employees_count + score_turnover
+    score = score_company_type + score_localisation + score_employees_count + score_turnover
+    score.positive? ? score : 0
   end
 
   private
