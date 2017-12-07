@@ -73,10 +73,10 @@ obligations = [
 
 obligations.each do |obligation|
   new_obligation = Obligation.find_or_create_by!(obligation.slice(:title, :category))
-  ap new_obligation
+  p new_obligation
   obligation[:tasks].each do |task_title|
     task = new_obligation.tasks.find_or_create_by!(title: task_title)
-    ap task
+    p task
   end
 end
 
