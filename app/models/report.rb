@@ -43,7 +43,9 @@ class Report < ApplicationRecord
   end
 
   def report_task_by_status
-    report_obligation_tasks.group(:status).count
+    task_by_status = report_obligation_tasks.group(:status).count
+    total_tasks = report_obligation_tasks.count
+    convert_values_to_percentages(task_by_status, total_tasks)
   end
 
   def report_task_by_obligation_and_status
@@ -51,5 +53,11 @@ class Report < ApplicationRecord
                            .order('obligations.title')
                            .group(:status, 'obligations.title')
                            .count
+  end
+
+  private
+
+  def convert_values_to_percentages(task_by_status, total_tasks)
+    task_by_status.transform_values { |v| (v.to_f / total_tasks * 100).round(1) }
   end
 end

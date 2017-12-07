@@ -6,5 +6,6 @@
   <% end %>
 <% end %>
 
-<%= pie_chart report_completed_tasks_path(@dashboard.report) %>
-<%= column_chart @dashboard.column_chart_data, @dashboard.column_chart_options %>
+<%= pie_chart report_completed_tasks_path(@dashboard.report),
+  title: t('.pie_title'), legend: "bottom" %>
+<%= column_chart @dashboard.column_chart_data, @dashboard.column_chart_options  %>

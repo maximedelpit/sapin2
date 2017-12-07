@@ -11,3 +11,6 @@ fr:
       long: "%-d %B %Y à %H:%M"
       short: "%-d %b à %H:%M"
     pm: pm
+  facades:
+    dashboard:
+      number_of_tasks: "Nombre de tâches"

@@ -25,11 +25,15 @@ class DashboardFacade
   end
 
   def column_chart_options
-    {
-      library: { scales: { xAxes: [{ ticks: {
-        autoSkip: false, maxRotation: 10,
-        minRotation: 10, labelOffset: 70
-      } }] } }
-    }
+    { legend: 'bottom', ytitle: I18n.translate('facades.dashboard.number_of_tasks'),
+      library: { scales: {
+        xAxes: [{ ticks: {
+          autoSkip: false, maxRotation: 10,
+          minRotation: 10, labelOffset: 70
+        } }],
+        yAxes: [{ ticks: {
+          beginAtZero: true, stepSize: 1
+        } }]
+      } } }
   end
 end
