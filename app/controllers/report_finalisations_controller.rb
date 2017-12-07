@@ -40,6 +40,6 @@ class ReportFinalisationsController < ApplicationController
   end
 
   def report_finalisation_form_params
-    params.permit(rods: %i[status task_id report_obligation_id])
+    params.permit(report_tasks: %i[status task_id report_obligation_id])
   end
 end

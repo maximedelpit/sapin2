@@ -1,11 +1,10 @@
 <%= form_tag finalisation_report_path(@report) do %>
-  <% @report_obligations.each do |ro| %>
-    <h2><%= ro.obligation.title %></h2>
-    <% ro.obligation.tasks.each do |d| %>
-      <h4><%= d.title %></h4>
+  <% @report_obligations.each do |report_obligation| %>
+    <h2><%= report_obligation.obligation.title %></h2>
+    <% report_obligation.obligation.tasks.each do |task| %>
+      <h4><%= task.title %></h4>
 
-      <%= simple_fields_for 'rods[]',
-          d.report_obligation_tasks.build(report_obligation: ro) do |f| %>
+      <%= simple_fields_for 'report_tasks[]', task.build_report_task(report_organisation) do |f| %>
         <%= f.label :status %>
         <%= f.select :status, enum_options_for_select(ReportObligationTask, :status) %>
         <%= f.hidden_field :task_id %>

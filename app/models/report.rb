@@ -41,4 +41,15 @@ class Report < ApplicationRecord
       'not_concerned'
     end
   end
+
+  def report_task_by_status
+    report_obligation_tasks.group(:status).count
+  end
+
+  def report_task_by_obligation_and_status
+    report_obligation_tasks.eager_load(report_obligation: :obligation)
+                           .order('obligations.title')
+                           .group(:status, 'obligations.title')
+                           .count
+  end
 end

@@ -1,8 +1,8 @@
 <h1><%= @dashboard.prospect.first_name %></h1>
-<% @dashboard.report_obligations.each do |ro| %>
-  <h2><%= ro.obligation.title %></h2>
-  <% ro.report_obligation_tasks.each do |rod| %>
-    <p><%= rod.task.title %> <strong><%= rod.status %></strong></p>
+<% @dashboard.report_obligations.each do |report_obligation| %>
+  <h2><%= report_obligation.obligation.title %></h2>
+  <% report_obligation.report_obligation_tasks.each do |report_task| %>
+    <p><%= report_task.task.title %> <strong><%= report_task.status %></strong></p>
   <% end %>
 <% end %>
 

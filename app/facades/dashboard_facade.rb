@@ -21,11 +21,7 @@ class DashboardFacade
   # does not render the same chart when inserted from the controller
   # --> https://github.com/ankane/chartkick#say-goodbye-to-timeouts
   def column_chart_data
-    @column_chart_data ||= @report.report_obligation_tasks
-                                  .eager_load(report_obligation: :obligation)
-                                  .order('obligations.title')
-                                  .group(:status, 'obligations.title')
-                                  .count
+    @column_chart_data ||= @report.report_task_by_obligation_and_status
   end
 
   def column_chart_options

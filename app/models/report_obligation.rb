@@ -35,9 +35,9 @@ class ReportObligation < ApplicationRecord
   scope :minor, (-> { includes(:obligation).where(obligations: { category: 'minor' }) })
   scope :important, (-> { includes(:obligation).where(obligations: { category: 'important' }) })
 
-  def initialize_rods
+  def initialize_report_tasks
     obligation.tasks.inject([]) do |arr, task|
-      arr << ReportObligationtask.new(task: task, report_obligation: self)
+      arr << ReportObligationTask.new(task: task, report_obligation: self)
     end
   end
 end

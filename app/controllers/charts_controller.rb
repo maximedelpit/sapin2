@@ -5,6 +5,6 @@
 class ChartsController < ApplicationController
   def completed_tasks
     @report = Report.find(params[:report_id])
-    render json: @report.report_obligation_tasks.group(:status).count
+    render json: @report.report_task_by_status
   end
 end

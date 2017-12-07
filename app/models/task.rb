@@ -24,7 +24,11 @@ class Task < ApplicationRecord
   belongs_to :obligation
   has_many :report_obligation_tasks, dependent: :nullify
 
-  def create_report_obligation_task(report_obligation)
+  def create_report_report_task(report_obligation)
     report_obligation_tasks.create(report_obligation: report_obligation)
+  end
+
+  def task.build_report_task(report_obligation)
+    report_obligation_tasks.build(report_obligation: report_obligation)
   end
 end

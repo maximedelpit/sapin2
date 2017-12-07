@@ -7,12 +7,12 @@ class ReportFinalisationForm
   include ActiveModel::Model
   include ActiveModel::Validations::Callbacks
 
-  attr_accessor :rods
+  attr_accessor :report_tasks
 
   def save
     return false unless valid?
     ActiveRecord::Base.transaction do
-      create_rods(rods)
+      create_report_tasks(report_tasks)
     end
     true
   rescue ActiveRecord::StatementInvalid => e
@@ -20,12 +20,18 @@ class ReportFinalisationForm
     false
   end
 
-  def create_rods(rods)
-    rods.each do |rod|
-      report_obligation = ReportObligation.find(rod[:report_obligation_id])
-      task = Task.find(rod[:task_id])
-      ReportObligationTask.create!(status: rod[:status], task: task,
-                                   report_obligation: report_obligation)
+  private
+
+  def create_report_tasks(report_tasks)
+    report_tasks.each do |report_task|
+      create_report_task(report_task)
     end
+  end
+
+  def create_report_task(report_task)
+    report_obligation = ReportObligation.find(report_task[:report_obligation_id])
+    task = Task.find(report_task[:task_id])
+    ReportObligationTask.create!(status: report_task[:status], task: task,
+                                 report_obligation: report_obligation)
   end
 end
