@@ -1,16 +1,19 @@
 <% @report_obligations.each do |report_obligation| %>
   <h2><%= report_obligation.obligation.title %></h2>
   <% report_obligation.obligation.tasks.each do |task| %>
-    <h4><%= task.title %></h4>
-
-    <%= simple_fields_for 'report_tasks[]', task.build_report_task(report_obligation) do |f| %>
-      <%= f.label :status %>
-      <%= f.select :status, enum_options_for_select(ReportObligationTask, :status) %>
-      <%= f.hidden_field :task_id %>
-      <%= f.hidden_field :report_obligation_id %>
-    <% end %>
-
+  <div class="form-block">
+    <p class="form-label"><%= task.title %></p>
+    <div class="form-fields">
+      <%= simple_fields_for "report_tasks[#{task.id}]", task.build_report_task(report_obligation) do |f| %>
+        <%= f.collection_radio_buttons :status, enum_options_for_select(ReportObligationTask, :status), :last, :first %>
+        <%= f.hidden_field :task_id %>
+        <%= f.hidden_field :report_obligation_id %>
+      <% end %>
+    </div>
+  </div>
   <% end %>
 
 <% end %>
-<%= submit_tag %>
+<div class="container-button">
+  <%= submit_tag nil, :class => "btn btn-primary" %>
+</div>

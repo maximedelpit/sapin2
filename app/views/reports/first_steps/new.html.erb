@@ -1,18 +1,60 @@
-<div>
+<div class="form">
   <%= simple_form_for(@form, url: report_index_path) do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :email %>
-    <%= f.input :phone_number %>
-    <%= f.label :role %>
-    <%= f.select :role, enum_options_for_select(Prospect, :role) %>
-    <%= f.label :localisation %>
-    <%= f.select :localisation, enum_options_for_select(Company, :localisation) %>
-    <%= f.label :firm_type %>
-    <%= f.select :firm_type, enum_options_for_select(Company, :firm_type) %>
-    <%= f.label :employees_count %>
-    <%= f.select :employees_count, enum_options_for_select(Company, :employees_count) %>
-    <%= f.label :turnover %>
-    <%= f.select :turnover, enum_options_for_select(Company, :turnover) %>
-    <%= f.button :submit %>
+
+    <h2>Quelques informations sur votre situation</h2>
+    <div class="form-block">
+      <p class="form-label">Nom</p>
+      <div class="form-fields">
+        <%= f.input :first_name, label: false %>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <p class="form-label">Contact</p>
+      <div class="form-fields">
+        <%= f.input :email %>
+        <%= f.input :phone_number %>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <p class="form-label">Rôle</p>
+      <div class="form-fields">
+        <%= f.collection_radio_buttons :role, enum_options_for_select(Prospect, :role), :last, :first %>
+      </div>
+    </div>
+
+    <h2>Et celle de votre entreprise</h2>
+    <%#= f.input :role, , as: :radio_buttons %>
+    <div class="form-block">
+      <p class="form-label">Domiciliation</p>
+      <div class="form-fields">
+        <%= f.collection_radio_buttons :localisation, enum_options_for_select(Company, :localisation), :last, :first %>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <p class="form-label">Type de structure</p>
+      <div class="form-fields">
+        <%= f.collection_radio_buttons :firm_type, enum_options_for_select(Company, :firm_type), :last, :first %>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <p class="form-label">Nombre d'employés</p>
+      <div class="form-fields">
+        <%= f.collection_radio_buttons :employees_count, enum_options_for_select(Company, :employees_count), :last, :first %>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <p class="form-label">Chiffre d'affaire</p>
+      <div class="form-fields">
+        <%= f.collection_radio_buttons :turnover, enum_options_for_select(Company, :turnover), :last, :first %>
+      </div>
+    </div>
+    <div class="container-button">
+      <%= f.button :submit, 'Créer un rapport', class: "btn btn-primary" %>
+    </div>
   <% end %>
 </div>

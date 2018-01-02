@@ -43,7 +43,8 @@ class Report < ApplicationRecord
   end
 
   def report_task_by_status
-    task_by_status = report_obligation_tasks.group(:status).count
+    translate_state = {"to_do" => "À faire", "done" => "Fait", "doing" => "En cours"}
+    task_by_status = report_obligation_tasks.group(:status).count.transform_keys{ |key| translate_state[key] }
     total_tasks = report_obligation_tasks.count
     convert_values_to_percentages(task_by_status, total_tasks)
   end

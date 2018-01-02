@@ -1,11 +1,32 @@
-<h1><%= @dashboard.prospect.first_name %></h1>
-<% @dashboard.report_obligations.each do |report_obligation| %>
-  <h2><%= report_obligation.obligation.title %></h2>
-  <% report_obligation.report_obligation_tasks.each do |report_task| %>
-    <p><%= report_task.task.title %> <strong><%= report_task.status %></strong></p>
+<div class="reporting">
+  <div class="form-report">
+    <% @dashboard.report_obligations.each do |report_obligation| %>
+      <div class="card <%= report_obligation.status %>">
+        <div class="card-header">
+          <h3><%= report_obligation.obligation.title %></h3>
+          <p><%= enum_i18n(ReportObligation, :status, report_obligation.status) %></p>
+        </div>
+         <div class="task-list">
+           <% report_obligation.report_obligation_tasks.each do |report_task| %>
+           <div class="task <%= report_task.status %>">
+              <p><%= report_task.task.title %></p>
+              <div>
+                <%= enum_i18n(ReportObligationTask, :status, report_task.status) %>
+                <i class="fa <%= report_task.status %>"></i>
+              </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
   <% end %>
-<% end %>
-
-<%= pie_chart report_completed_tasks_path(@dashboard.report),
-  title: t('.pie_title'), legend: "bottom" %>
-<%= column_chart @dashboard.column_chart_data, @dashboard.column_chart_options  %>
+  </div>
+  <div class="graphs">
+    <%= pie_chart report_completed_tasks_path(@dashboard.report),
+      title: t('.pie_title'), legend: "bottom", colors: ["#f8cb00", "#45b7af", "#ff6b6b"] %>
+    <%#= column_chart @dashboard.column_chart_data, @dashboard.column_chart_options  %>
+    <div class="ending">
+      <p>Nous vous accompagnons dans votre mise au norme [...]</p>
+      <a href="mailto:agrouas@hotmail.fr" class="btn btn-primary">Contactez-nous</a>
+    </div>
+  </div>
+</div>

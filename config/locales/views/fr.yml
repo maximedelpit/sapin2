@@ -2,4 +2,4 @@ fr:
   reports:
     dashboards:
       show:
-        pie_title: "Status des tâches (en pourcentage)"
+        pie_title: "Statuts des tâches (en pourcentage)"

@@ -1,0 +1,38 @@
+body{
+  background-color:white;
+  color:black;
+}
+
+.logo{
+  padding:25px;
+  height:100px;
+  img{
+    height:50px;
+  }
+}
+
+.main-nav{
+  height:100px;
+  background-color: $brand-light;
+  ul{
+    list-style: none;
+    display:flex;
+    display:-ms-flexbox;
+    justify-content:space-around;
+    -ms-justify-content:space-around;
+    align-items:center;
+    -ms-align-items:center;
+    height:100%;
+    li{
+      font-size: 14px;
+      a{
+        font-weight: bold;
+        &.disabled{
+          pointer-events: none;
+          cursor: default;
+          color:#c6cbcc;
+        }
+      }
+    }
+  }
+}
