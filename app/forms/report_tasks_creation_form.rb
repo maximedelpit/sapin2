@@ -29,10 +29,10 @@ class ReportTasksCreationForm
   end
 
   def create_report_task(report_task)
-    report_obligation = ReportObligation.find(report_task[:report_obligation_id])
-    task = Task.find(report_task[:task_id])
+    report_obligation = ReportObligation.find(report_task[1][:report_obligation_id])
+    task = Task.find(report_task[1][:task_id])
     rt = ReportObligationTask.find_or_initialize_by(task: task,
                                                     report_obligation: report_obligation)
-    rt.update!(status: report_task[:status])
+    rt.update!(status: report_task[1][:status])
   end
 end

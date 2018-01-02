@@ -1,6 +1,17 @@
+<div class="form">
+<h2>VOUS ETES CONCERNÉ. VOICI VOTRE FEUILLE DE ROUTE</h2>
+<p>La loi définit ses obligations dans le cadre de 8 articles. Chacun d'entre-eux est subdivisé en plusieurs rubriques correspondant à des documents particuliers.</p>
 <% @report.report_obligations.includes(:obligation).each do |report_obligation| %>
-  <%= report_obligation.obligation.title %> -->
-  <%= enum_i18n(ReportObligation, :status, report_obligation.status) %>
-  <br>
+
+  <div class="form-block">
+      <span class="form-label <%= report_obligation.status %>"><%= enum_i18n(ReportObligation, :status, report_obligation.status) %></span>
+      <div class="form-fields">
+         <%= report_obligation.obligation.title %>
+      </div>
+    </div>
+
 <% end %>
-<%= link_to "Next Step", new_report_second_step_path(@report) %>
+ <div class="container-button">
+    <%= link_to "Visualisez vos obligations", new_report_second_step_path(@report), class: "btn btn-primary" %>
+  </div>
+</div>
