@@ -11,7 +11,11 @@ module Reports
       @form = ReportInitializationForm.new(report_initialization_form_params)
       if @form.save
         report = ReportInitializor.new(@form.company.id).call
-        redirect_to report_path(report)
+        if report.report_obligations.includes(:obligation).where(status: "not_needed").count == 8
+          redirect_to "/pages/not_needed"
+        else
+          redirect_to report_path(report)
+        end
       else
         render :new
       end
@@ -25,7 +29,7 @@ module Reports
 
     def report_initialization_form_params
       params.require(:report_initialization_form).permit(:first_name, :phone_number, :email,
-                                                         :role, :localisation, :firm_type,
+                                                         :role, :localisation, :firm_name, :firm_type,
                                                          :employees_count, :turnover)
     end
   end

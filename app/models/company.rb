@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: companies
@@ -12,6 +11,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  prospect_id     :integer
+#  firm_name       :string
 #
 # Indexes
 #

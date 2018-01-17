@@ -11,6 +11,7 @@ class ReportInitializationForm
   attr_accessor :email
   attr_accessor :role
   attr_accessor :localisation
+  attr_accessor :firm_name
   attr_accessor :firm_type
   attr_accessor :employees_count
   attr_accessor :turnover
@@ -31,7 +32,7 @@ class ReportInitializationForm
     return false unless valid?
     prospect = Prospect.create(first_name: first_name, phone_number: phone_number,
                                email: email, role: role, is_responsible: responsible?)
-    @company = Company.create(localisation: localisation, firm_type: firm_type,
+    @company = Company.create(localisation: localisation, firm_name: firm_name, firm_type: firm_type,
                               turnover: turnover, employees_count: employees_count,
                               prospect: prospect)
   end

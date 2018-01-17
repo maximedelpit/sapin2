@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'reports/first_steps#new'
 
   resources :report, only: %i[new create show], controller: 'reports/first_steps'
-
+  get "/pages/:page" => "pages#show"
   resources :reports, only: [] do
     resource :second_step, only: %i[new create], controller: 'reports/second_steps'
     resource :third_step, only: %i[new create], controller: 'reports/third_steps'

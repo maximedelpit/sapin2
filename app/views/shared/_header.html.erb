@@ -8,7 +8,7 @@
     <li><%= link_to 'Feuille de route', report_path(params[:report_id]) %></li>
     <li><%= link_to 'Code conduite | Dispositif d\'alerte', new_report_second_step_path(params[:report_id]) %></li>
     <li><%= link_to 'Autres dispositions', new_report_third_step_path(params[:report_id]) %></li>
-    <li><%= link_to 'Résumé', report_dashboard_path(params[:report_id]) %></li>
+    <li><%= link_to 'Synthèse', report_dashboard_path(params[:report_id]) %></li>
   </ul>
 <% else %>
   <ul>
@@ -16,7 +16,7 @@
     <li><%= link_to 'Feuille de route', new_report_path, class: "disabled" %></li>
     <li><%= link_to 'Code conduite | Dispositif d\'alerte', new_report_path, class: "disabled" %></li>
     <li><%= link_to 'Autres dispositions', new_report_path, class: "disabled" %></li>
-    <li><%= link_to 'Résumé', new_report_path, class: "disabled" %></li>
+    <li><%= link_to 'Synthèse', new_report_path, class: "disabled" %></li>
   </ul>
 <% end %>
 </nav>

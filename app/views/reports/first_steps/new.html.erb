@@ -1,30 +1,17 @@
 <div class="form">
   <%= simple_form_for(@form, url: report_index_path) do |f| %>
+    <p class="notice">La loi sur la transparence financière entrée en vigueur en juin 2017, dite loi Sapin II, engage profondément et durablement les entreprises concernées. Le non-respect des prescriptions légales ou les infractions à la loi sont lourdes de conséquences.<br>
+Cette application vous permet de déterminer si votre entreprise et vous-même en tant que responsable, êtes concernés par la loi. Et, dans ce cas, vous indique votre feuille de route pour remplir vos obligations.
+</p>
+    <h2>Quelques informations sur votre Entreprise</h2>
 
-    <h2>Quelques informations sur votre situation</h2>
     <div class="form-block">
-      <p class="form-label">Nom</p>
+      <p class="form-label">Entreprise</p>
       <div class="form-fields">
-        <%= f.input :first_name, label: false %>
+        <%= f.input :firm_name, label: false %>
       </div>
     </div>
 
-    <div class="form-block">
-      <p class="form-label">Contact</p>
-      <div class="form-fields">
-        <%= f.input :email %>
-        <%= f.input :phone_number %>
-      </div>
-    </div>
-
-    <div class="form-block">
-      <p class="form-label">Rôle</p>
-      <div class="form-fields">
-        <%= f.collection_radio_buttons :role, enum_options_for_select(Prospect, :role), :last, :first %>
-      </div>
-    </div>
-
-    <h2>Et celle de votre entreprise</h2>
     <%#= f.input :role, , as: :radio_buttons %>
     <div class="form-block">
       <p class="form-label">Domiciliation</p>
@@ -53,8 +40,35 @@
         <%= f.collection_radio_buttons :turnover, enum_options_for_select(Company, :turnover), :last, :first %>
       </div>
     </div>
+
+
+
+    <h2>Et sur vous</h2>
+    <div class="form-block">
+      <p class="form-label">Nom</p>
+      <div class="form-fields">
+        <%= f.input :first_name, label: false %>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <p class="form-label">Contact</p>
+      <div class="form-fields">
+        <%= f.input :email %>
+        <%= f.input :phone_number %>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <p class="form-label">Rôle</p>
+      <div class="form-fields">
+        <%= f.collection_radio_buttons :role, enum_options_for_select(Prospect, :role), :last, :first %>
+      </div>
+    </div>
+
+
     <div class="container-button">
-      <%= f.button :submit, 'Créer un rapport', class: "btn btn-primary" %>
+      <%= f.button :submit, 'Page suivante', class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
