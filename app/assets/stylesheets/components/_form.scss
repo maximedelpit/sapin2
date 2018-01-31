@@ -99,7 +99,16 @@
     .ending{
       background-color:$brand-light;
       padding:20px;
-      margin:100px 40px;
+      margin:100px 40px 20px 40px;
+      text-align:left;
+      p{
+        font-size:12px;
+      }
+    }
+    .to_pdf{
+      background-color:$brand-light;
+      padding:20px;
+      margin:0px 40px;
       text-align:left;
       p{
         font-size:12px;
@@ -107,6 +116,25 @@
     }
   }
 }
+
+.reporting-pdf{
+  display:flex;
+  display:-ms-flexbox;
+  flex-direction:column;
+  -ms-flex-direction:column;
+  justify-content:space-between;
+  -ms-justify-content:space-between;
+  .form-report{
+    width:100%!important;
+  }
+  .graphs{
+    width:100%!important;
+    .ending{
+      margin:20px!important;
+    }
+  }
+}
+
 
 .form-report{
   padding:20px;
@@ -148,6 +176,9 @@
       -ms-justify-content:space-between;
       align-items:baseline;
       -ms-align-items:baseline;
+      &>p{
+        width:80%;
+      }
       div{
       flex-shrink:0;
       }

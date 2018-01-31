@@ -11,6 +11,7 @@ class ReportInitializationForm
   attr_accessor :email
   attr_accessor :role
   attr_accessor :localisation
+  attr_accessor :daughter_localisation
   attr_accessor :firm_name
   attr_accessor :firm_type
   attr_accessor :employees_count

@@ -1,5 +1,6 @@
 <div class="logo">
   <%= image_tag('logo_affinis.png') %>
+  <%= get_title(controller_name, action_name) %>
 </div>
 <nav class="main-nav">
 <% if params[:report_id] %>
