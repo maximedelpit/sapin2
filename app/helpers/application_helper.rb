@@ -7,7 +7,7 @@ module ApplicationHelper
     case controller
     when "first_steps"
       if action == "new"
-        slot_construct = "<h3>Loi Sapin II - Êtes-vous concernés</h3>"
+        slot_construct = "<h3>Loi Sapin II - Êtes-vous concerné</h3>"
       else
         slot_construct = "<h3>Feuille de route</h3>"
       end
