@@ -1,7 +1,7 @@
 <div class="form">
   <%= simple_form_for(@form, url: report_index_path) do |f| %>
     <p class="notice">La loi sur la transparence financière entrée en vigueur en juin 2017, dite loi Sapin II, engage profondément et durablement les entreprises concernées. Le non-respect des prescriptions légales ou les infractions à la loi sont lourdes de conséquences.<br>
-Cette application vous permet de déterminer si votre entreprise et vous-même en tant que responsable, êtes concernés par la loi. Et, dans ce cas, vous indique votre feuille de route pour remplir vos obligations.
+Cette application vous permet de déterminer si votre entreprise et vous-même en tant que responsable, êtes concernés par la loi. Et, dans ce cas, elle vous indique votre feuille de route pour remplir vos obligations.
 </p>
     <h2>Quelques informations sur votre Entreprise</h2>
 
@@ -62,6 +62,7 @@ Cette application vous permet de déterminer si votre entreprise et vous-même e
       <p class="form-label">Contact</p>
       <div class="form-fields">
         <%= f.input :email %>
+        <%= f.input :password %>
         <%= f.input :phone_number %>
       </div>
     </div>

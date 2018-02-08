@@ -5,6 +5,9 @@ module Reports
   class DashboardsController < ApplicationController
     def show
       @dashboard = ReportDashboardFacade.new(params[:report_id])
+      unless current_prospect.company.report.id == params[:report_id] || current_admin_user.nil?
+        redirect_to root_path
+      end
       # @prospect_pdf = issue_id << ".pdf"
       respond_to  do |format|
         format.html
