@@ -26,7 +26,11 @@ module Reports
 
     def show
         @report = Report.find(params[:id])
-        unless current_prospect.company.report == @report || current_admin_user.nil?
+        if !current_prospect.nil?
+          unless current_prospect.company.report == @report || current_admin_user.nil?
+            redirect_to root_path
+          end
+        else
           redirect_to root_path
         end
     end
