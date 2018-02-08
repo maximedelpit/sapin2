@@ -24,7 +24,7 @@ class ReportInitializationForm
 
   validates :first_name, presence: true
   validates_plausible_phone :phone_number, presence: true
-  validates :email, presence: true, email: true
+  validates :email, presence: true, email: true, uniqueness: true
   validates :password, presence: true
   validates :role, presence: true, inclusion: { in: Prospect.roles.keys }
   validates :localisation, presence: true, inclusion: { in: Company.localisations.keys }
