@@ -5,6 +5,7 @@
 class ReportInitializationForm
   include ActiveModel::Model
   include ActiveModel::Validations::Callbacks
+  extend ActiveModel::Naming
 
   attr_accessor :first_name
   attr_accessor :phone_number, :phone_number_normalized
@@ -24,13 +25,20 @@ class ReportInitializationForm
 
   validates :first_name, presence: true
   validates_plausible_phone :phone_number, presence: true
-  validates :email, presence: true, email: true, unique: true
+  validates :email, presence: true, email: true
   validates :password, presence: true
   validates :role, presence: true, inclusion: { in: Prospect.roles.keys }
   validates :localisation, presence: true, inclusion: { in: Company.localisations.keys }
   validates :firm_type, presence: true, inclusion: { in: Company.firm_types.keys }
   validates :turnover, presence: true, inclusion: { in: Company.turnovers.keys }
   validates :employees_count, presence: true, inclusion: { in: Company.employees_counts.keys }
+
+  validate do
+    if self.email && ObjectSpace.each_object(self.class).select{|o| o.email == self.email }.size > 1
+         errors.add(:email,"Email déjà utilisé")
+    end
+  end
+
 
   def save
     return false unless valid?
