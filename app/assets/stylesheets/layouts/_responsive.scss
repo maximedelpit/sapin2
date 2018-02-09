@@ -1,4 +1,10 @@
 @media (max-width: 1000px) {
+  .form-last{
+   .form-label{
+     width:140px!important;
+    }
+  }
+
   .logo{
     flex-direction:column;
     height:auto!important;
@@ -32,3 +38,4 @@
     }
   }
  }
+
